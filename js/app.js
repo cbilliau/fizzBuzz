@@ -4,27 +4,36 @@
   // If number is divisible by 3, print 'frizz'.
   // If number is divisible by 5, print 'buzz'.
   // If number is divisible by 5 and 3, print 'fizzbuzz'.
+  $(function(){
+    // Wait for html to fully load
+    var userNumber;
+    // Set global var userNumber
+    var fizzBuzzifier = function(num){
+      // declare function expression with param 'num'.
+      var i;
+      // Set var with function scope
+      for ( i = 1; i <= num; i++ ) {
+        // for loop; iterate over param 'num'
+        if ( i % 5 === 0 && i % 3 === 0 ) {
+          $('#main').append('<p>FizzBuzz</p>');
+        } else if ( i % 5 === 0 ) {
+          $('#main').append('<p>Buzz</p>');
+        } else if ( i % 3 === 0 ) {
+          $('#main').append('<p>Fizz</p>');
+        } else {
+          $('#main').append('<p>' + i + '</p>');
+        }
+      }
+    };
 
-$('div').on('click', 'button', function() {  
-  // Create loop that iterates from 1 to 100.
-  for (var num = 1; num <=100; num++) {
-      // check if iteration is divisble by 3 and 5.
-    if ((num % 5) === 0 && (num % 3) === 0) {
-        // if divisble by 3 and 5, print 'fizzBuzz'.
-      document.write('FIZZBUZZ\n\r');
-  }
-      // check if iteration is divisble by 5.
-    else if ((num % 5) === 0) {
-        // if divisble by 5 then print 'buzz'.
-      document.write('buzz\n\r');
+    while ( (isNaN(userNumber)) && (userNumber % 1 != 0)) {
+      // While loop to ensure prompt value is a number
+      userNumber = prompt('Enter a whole number');
+      userNumber = +userNumber;
+      // Convert value of string to a number.
     }
-      // check if iteration is divisble by 3.
-    else if     ((num % 3) === 0) {
-          // if divisble by 3 then print 'fizz'.
-        document.write('fizz\n\r');
-    }
-    else {
-      document.write(num + "\n\r");
-    }
-  }
-});
+
+    fizzBuzzifier(userNumber);
+    // trigger fizzbuzz event with prompt value as param.
+
+  });
