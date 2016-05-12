@@ -26,14 +26,15 @@
       }
     };
 
-    while ( (isNaN(userNumber)) && (userNumber % 1 != 0)) {
+    while ( isNaN(userNumber)) {
       // While loop to ensure prompt value is a number
-      userNumber = prompt('Enter a whole number');
+      userNumber = prompt('Enter a whole number. (All numbers will be converted to a positive integer.)');
       userNumber = +userNumber;
+      userNumberfinal = Math.abs(Math.floor(userNumber));
       // Convert value of string to a number.
     }
 
-    fizzBuzzifier(userNumber);
+    fizzBuzzifier(userNumberfinal);
     // trigger fizzbuzz event with prompt value as param.
 
   });
